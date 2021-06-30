@@ -27,5 +27,4 @@ int main()
 {
     Solution x;
     std::cout << x.isPalindrome(-121);
-
 }
