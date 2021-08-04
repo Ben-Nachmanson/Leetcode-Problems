@@ -9,30 +9,36 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+#include <iostream>
+#include <vector>
+using namespace std;
+class Solution
+{
 public:
-    bool isSymmetric(TreeNode* root) 
+    bool isSymmetric(TreeNode *root)
     {
-        if(root == NULL) return true;
-        return isSame(root->left, root->right);        
+        if (root == NULL)
+            return true;
+        return isSame(root->left, root->right);
     }
-    
-    bool isSame(TreeNode* left, TreeNode* right)
+
+    bool isSame(TreeNode *left, TreeNode *right)
     {
-        if(left == NULL)
+        if (left == NULL)
         {
             return right == NULL ? true : false;
         }
         else
         {
-            if( right == NULL) return false;
+            if (right == NULL)
+                return false;
             else
             {
-                if(left->val == right-> val)return isSame(left->left,right->right)&&isSame(left->right,right->left);
-                else return false;
-                
+                if (left->val == right->val)
+                    return isSame(left->left, right->right) && isSame(left->right, right->left);
+                else
+                    return false;
             }
-            
         }
     }
 };
